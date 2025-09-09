@@ -1,14 +1,17 @@
 
 #run in terminal - streamlit run tweetapp.py
-from pathlib import Path
-from dotenv import load_dotenv  # will be grey until used
-load_dotenv(dotenv_path=Path(__file__).parent / ".env")
+#from pathlib import Path
+#from dotenv import load_dotenv  # will be grey until used
+#load_dotenv(dotenv_path=Path(__file__).parent / ".env")
 
 #Use Gemini
 from langchain_google_genai import ChatGoogleGenerativeAI
 gemini_model = ChatGoogleGenerativeAI(model = "gemini-1.5-flash-latest")
 from langchain_core.prompts import PromptTemplate
 from langchain_core.output_parsers import StrOutputParser
+
+import os
+os.environ["GOOGLE_API_KEY"] = st.secrets["GOOGLE_API_KEY"]
 
 # Create prompt template for generating tweets
 tweet_template = "Give me {number} tweets on {topic}"
