@@ -10,6 +10,8 @@ gemini_model = ChatGoogleGenerativeAI(model = "gemini-1.5-flash-latest")
 from langchain_core.prompts import PromptTemplate
 from langchain_core.output_parsers import StrOutputParser
 
+import streamlit as st
+
 import os
 os.environ["GOOGLE_API_KEY"] = st.secrets["GOOGLE_API_KEY"]
 
@@ -20,7 +22,7 @@ tweet_prompt = PromptTemplate(template = tweet_template, input_variables = ['num
 tweet_chain = tweet_prompt | gemini_model | StrOutputParser()
 # print(tweet_chain.invoke({"number" : 2, "topic" : "Wars in Middle East"}))
 
-import streamlit as st
+
 
 st.header("Tweet Generator")
 st.subheader("Generate Tweets using Generative AI")
