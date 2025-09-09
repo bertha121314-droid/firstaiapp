@@ -1,0 +1,7 @@
+transformers
+langchain
+langchain-huggingface
+langchain-openai
+langchain-groq
+langchain-google-genai
+streamlit
